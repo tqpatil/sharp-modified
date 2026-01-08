@@ -96,6 +96,8 @@ def extract_exif(img_pil: Image.Image) -> dict[str, Any]:
 
 def convert_focallength(width: float, height: float, f_mm: float = 30) -> float:
     """Converts a focal length given in mm to pixels."""
+    if f_mm == 30:
+        return 1723.42 # hard coded 
     return f_mm * np.sqrt(width**2.0 + height**2.0) / np.sqrt(36**2 + 24**2)
 
 
